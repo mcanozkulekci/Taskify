@@ -1,9 +1,14 @@
-import React from 'react';
-
+import React, { useCallback, useEffect, useState } from 'react';
+import { MOCK_TASKS } from './components/MockTasks';
 import Typography from '@mui/material/Typography';
-import InputTask from './components/InputTask';
 import { Box } from '@mui/material';
-function App() {
+
+import { Task } from './types/Task';
+
+const App: React.FC = () => {
+  const [task, setTask] = useState<string>('');
+  const [tasks, setTasks] = useState<Task[]>([]);
+
   return (
     <div className="App" style={{ justifyContent: 'center', display: 'flex' }}>
       <Box
@@ -22,10 +27,10 @@ function App() {
         >
           Taskify
         </Typography>
-        <InputTask></InputTask>
+        <pre>{JSON.stringify(MOCK_TASKS, null, ' ')}</pre>
       </Box>
     </div>
   );
-}
+};
 
 export default App;

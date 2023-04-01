@@ -1,7 +1,4 @@
 import React from 'react';
-
-const SingleTask = () => {
-  return <div>SingleTask</div>;
-};
+const SingleTask = () => {};
 
 export default SingleTask;
