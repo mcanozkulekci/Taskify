@@ -1,0 +1,8 @@
+{
+  "json.schemas": [],
+  "files.associations": {
+    "*.tsx": "typescriptreact",
+    "*.ts": "typescriptreact"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
