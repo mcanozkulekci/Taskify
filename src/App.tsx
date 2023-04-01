@@ -1,15 +1,29 @@
 import React from 'react';
-import Box from '@mui/material/Box';
+
 import Typography from '@mui/material/Typography';
+import InputTask from './components/InputTask';
+import { Box } from '@mui/material';
 function App() {
   return (
-    <div className="App">
-      <span className="heading">
-        {' '}
-        <Typography variant="h1" gutterBottom>
+    <div className="App" style={{ justifyContent: 'center', display: 'flex' }}>
+      <Box
+        sx={{
+          width: '100%',
+          maxWidth: 500,
+        }}
+      >
+        <Typography
+          variant="h1"
+          gutterBottom
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
           Taskify
         </Typography>
-      </span>
+        <InputTask></InputTask>
+      </Box>
     </div>
   );
 }
