@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import { Box } from '@mui/material';
 
 import { Task } from './types/Task';
+import TaskList from './components/TaskList';
 
 const App: React.FC = () => {
   const [task, setTask] = useState<string>('');
@@ -27,7 +28,7 @@ const App: React.FC = () => {
         >
           Taskify
         </Typography>
-        <pre>{JSON.stringify(MOCK_TASKS, null, ' ')}</pre>
+        <TaskList tasks={MOCK_TASKS} setTasks={setTasks} />
       </Box>
     </div>
   );
