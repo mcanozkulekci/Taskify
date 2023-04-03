@@ -1,7 +1,13 @@
 import React from 'react';
+import { Task } from '../types/Task';
+import TaskList from './TaskList';
+
+interface PhaseListProps {
+  tasks: Task[];
+}
 
 const PhaseList = () => {
-  return <div>PhaseList</div>;
+  return <> PhaseList is here</>;
 };
 
 export default PhaseList;

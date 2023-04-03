@@ -5,10 +5,12 @@ import { Box } from '@mui/material';
 
 import { Task } from './types/Task';
 import TaskList from './components/TaskList';
+import PhaseList from './components/PhaseList';
 
 const App: React.FC = () => {
   const [task, setTask] = useState<string>('');
   const [tasks, setTasks] = useState<Task[]>([]);
+  // const [phaseList, setPhaseList] = useState<TaskList[]>([]);
 
   return (
     <div className="App" style={{ justifyContent: 'center', display: 'flex' }}>
@@ -28,7 +30,8 @@ const App: React.FC = () => {
         >
           Taskify
         </Typography>
-        <TaskList tasks={MOCK_TASKS} setTasks={setTasks} />
+        <PhaseList />
+        <TaskList tasks={MOCK_TASKS} setTasks={setTasks} phase={1} />
       </Box>
     </div>
   );

@@ -1,4 +1,3 @@
-import { Grid } from '@mui/material';
 import React from 'react';
 import { Task } from '../types/Task';
 import SingleTask from './SingleTask';
@@ -6,6 +5,7 @@ import SingleTask from './SingleTask';
 interface TaskListProps {
   tasks: Task[];
   setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
+  phase: number;
 }
 
 const TaskList: React.FC<TaskListProps> = ({
@@ -13,18 +13,16 @@ const TaskList: React.FC<TaskListProps> = ({
   setTasks,
 }: TaskListProps) => {
   return (
-    <Grid sx={{ flexGrow: 1 }} container spacing={2}>
-      <Grid item xs={12}>
-        {tasks.map((task) => (
-          <SingleTask
-            task={task}
-            key={task.id}
-            tasks={tasks}
-            setTasks={setTasks}
-          />
-        ))}
-      </Grid>
-    </Grid>
+    <div className="tasks">
+      {tasks.map((task) => (
+        <SingleTask
+          task={task}
+          key={task.id}
+          tasks={tasks}
+          setTasks={setTasks}
+        />
+      ))}
+    </div>
   );
 };
 
