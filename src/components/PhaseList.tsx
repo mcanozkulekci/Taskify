@@ -1,6 +1,5 @@
 import React from 'react';
-import { Task } from '../types/Task';
-import TaskList from './TaskList';
+import Task from '../types/Task';
 
 interface PhaseListProps {
   tasks: Task[];

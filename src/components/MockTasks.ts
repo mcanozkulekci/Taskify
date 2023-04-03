@@ -1,34 +1,59 @@
-import { Task } from '../types/Task';
+import State from '../types/State';
 
-export const MOCK_TASKS = [
-  new Task({
-    id: 1,
-    task: 'Evi temizle',
-    isDone: false,
-    phase: 1,
-  }),
-  new Task({
-    id: 2,
-    task: 'Kod yaz',
-    isDone: false,
-    phase: 2,
-  }),
-  new Task({
-    id: 3,
-    task: 'Copu cikar',
-    isDone: true,
-    phase: 3,
-  }),
-  new Task({
-    id: 4,
-    task: 'Kedileri besle',
-    isDone: false,
-    phase: 2,
-  }),
-  new Task({
-    id: 5,
-    task: 'Odani topla',
-    isDone: false,
-    phase: 3,
-  }),
-];
+const mockData: State = {
+  phases: [
+    {
+      id: 1,
+      phase: 'Phase 1',
+      tasks: [
+        {
+          id: 1,
+          task: 'Task 1.1',
+          completed: true,
+        },
+        {
+          id: 2,
+          task: 'Task 1.2',
+          completed: false,
+        },
+        {
+          id: 3,
+          task: 'Task 1.3',
+          completed: false,
+        },
+      ],
+      done: false,
+    },
+    {
+      id: 2,
+      phase: 'Phase 2',
+      tasks: [
+        {
+          id: 4,
+          task: 'Task 2.1',
+          completed: false,
+        },
+        {
+          id: 5,
+          task: 'Task 2.2',
+          completed: false,
+        },
+      ],
+      done: false,
+    },
+    {
+      id: 3,
+      phase: 'Phase 3',
+      tasks: [
+        {
+          id: 6,
+          task: 'Task 3.1',
+          completed: false,
+        },
+      ],
+      done: false,
+    },
+  ],
+};
+
+export default mockData;

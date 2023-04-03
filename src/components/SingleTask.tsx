@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import { Task } from '../types/Task';
-import EditIcon from '@mui/icons-material/Edit';
-import DoneIcon from '@mui/icons-material/Done';
-import DeleteIcon from '@mui/icons-material/Delete';
 import { Checkbox } from '@mui/material';
+import Task from '../types/Task';
 
 interface SingleTaskProps {
   task: Task;
@@ -24,19 +21,19 @@ const SingleTask: React.FC<SingleTaskProps> = ({
 
     setTasks(
       tasks.map((task) =>
-        task.id === id ? { ...task, isDone: !task.isDone } : task
+        task.id === id ? { ...task, isDone: !task.completed } : task
       )
     );
   };
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(event.target.checked);
   };
-  console.log(task.isDone);
+  console.log(task.completed);
   return (
     <form style={{ justifyContent: 'space-between', display: 'flex' }}>
       <span>{task.task}</span>
       <div>
-        {task.isDone ? (
+        {task.completed ? (
           <Checkbox
             checked={!checked}
             onChange={handleChange}
