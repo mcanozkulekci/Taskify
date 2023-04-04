@@ -4,25 +4,15 @@ import SingleTask from './SingleTask';
 
 interface TaskListProps {
   tasks: Task[];
-  setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
-  phase: number;
 }
 
-const TaskList: React.FC<TaskListProps> = ({
-  tasks,
-  setTasks,
-}: TaskListProps) => {
+const TaskList = ({ tasks }: TaskListProps) => {
   return (
-    <div className="tasks">
+    <ul className="tasks">
       {tasks.map((task) => (
-        <SingleTask
-          task={task}
-          key={task.id}
-          tasks={tasks}
-          setTasks={setTasks}
-        />
+        <SingleTask task={task} key={task.id} />
       ))}
-    </div>
+    </ul>
   );
 };
 

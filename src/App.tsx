@@ -1,14 +1,11 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Typography from '@mui/material/Typography';
 import { Box } from '@mui/material';
-import TaskList from './components/TaskList';
 import PhaseList from './components/PhaseList';
-import Task from './types/Task';
+import mockData from './components/MockData';
 
 const App: React.FC = () => {
-  const [task, setTask] = useState<string>('');
-  const [tasks, setTasks] = useState<Task[]>([]);
-  // const [phaseList, setPhaseList] = useState<TaskList[]>([]);
+  const [state, setState] = useState(mockData);
 
   return (
     <div className="App" style={{ justifyContent: 'center', display: 'flex' }}>
@@ -28,8 +25,7 @@ const App: React.FC = () => {
         >
           Taskify
         </Typography>
-        <PhaseList />
-        {/* <TaskList tasks={mockData} setTasks={setTasks} phase={1} /> */}
+        <PhaseList phases={state.phases} />
       </Box>
     </div>
   );
