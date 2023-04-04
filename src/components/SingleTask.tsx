@@ -1,13 +1,29 @@
 import React, { useState } from 'react';
-import { Checkbox } from '@mui/material';
+import { Box, Checkbox, Typography } from '@mui/material';
 import Task from '../types/Task';
 
 interface SingleTaskProps {
   task: Task;
 }
 
-const SingleTask = ({ task }: SingleTaskProps) => {
-  return <li>{task.task}</li>;
+const SingleTask: React.FC<SingleTaskProps> = ({ task }: SingleTaskProps) => {
+  return (
+    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+      <Box sx={{ mr: 1 }}>
+        <Typography variant="body1">{task.task}</Typography>
+      </Box>
+      {task.completed && (
+        <Box
+          sx={{
+            width: 12,
+            height: 12,
+            borderRadius: '50%',
+            bgcolor: 'success.main',
+          }}
+        />
+      )}
+    </Box>
+  );
 };
 
 export default SingleTask;
