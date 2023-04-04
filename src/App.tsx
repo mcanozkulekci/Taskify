@@ -8,14 +8,19 @@ const App: React.FC = () => {
   const [state, setState] = useState(mockData);
 
   return (
-    <div className="App" style={{ justifyContent: 'center' }}>
-      <Box>
+    <div
+      className="App"
+      style={{ backgroundColor: '#F0F2F5', minHeight: '100vh' }}
+    >
+      <Box sx={{ py: 5 }}>
         <Typography
           variant="h1"
           gutterBottom
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
+          align="center"
+          sx={{
+            color: '#5E6C84',
+            fontWeight: 'bold',
+            textTransform: 'uppercase',
           }}
         >
           Taskify

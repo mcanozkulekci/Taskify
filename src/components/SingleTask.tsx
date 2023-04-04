@@ -14,11 +14,22 @@ const SingleTask: React.FC<SingleTaskProps> = ({ task }: SingleTaskProps) => {
   };
 
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+    <Box
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        backgroundColor: checked ? '#d9ead3' : 'transparent',
+      }}
+    >
       <Box sx={{ mr: 1 }}>
         <Typography variant="body1">{task.task}</Typography>
       </Box>
-      <Checkbox checked={checked} onChange={handleChange} />
+      <Checkbox
+        checked={checked}
+        onChange={handleChange}
+        sx={{ marginLeft: '125px' }}
+      />
     </Box>
   );
 };

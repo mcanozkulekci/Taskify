@@ -28,7 +28,7 @@ const PhaseList = ({ phases }: PhaseListProps) => {
             md={4}
             sx={{
               display: 'flex',
-              flexDirection: 'column',
+              flexDirection: 'row',
               alignItems: 'center',
               height: '100%',
             }}
