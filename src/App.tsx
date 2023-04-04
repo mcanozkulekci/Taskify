@@ -3,9 +3,13 @@ import Typography from '@mui/material/Typography';
 import { Box } from '@mui/material';
 import PhaseList from './components/PhaseList';
 import mockData from './components/MockData';
+import Task from './types/Task';
 
 const App: React.FC = () => {
   const [state, setState] = useState(mockData);
+  const [isPhaseDone, setIsPhaseDone] = useState(
+    Array(mockData.phases.length).fill(false)
+  );
 
   return (
     <div
