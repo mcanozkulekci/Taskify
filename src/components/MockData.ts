@@ -36,7 +36,7 @@ const mockData: State = {
         {
           id: 5,
           task: 'Task 2.2',
-          completed: false,
+          completed: true,
         },
       ],
       done: false,
@@ -48,7 +48,7 @@ const mockData: State = {
         {
           id: 6,
           task: 'Task 3.1',
-          completed: false,
+          completed: true,
         },
       ],
       done: false,

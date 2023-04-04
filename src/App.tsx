@@ -8,13 +8,8 @@ const App: React.FC = () => {
   const [state, setState] = useState(mockData);
 
   return (
-    <div className="App" style={{ justifyContent: 'center', display: 'flex' }}>
-      <Box
-        sx={{
-          width: '100%',
-          maxWidth: 500,
-        }}
-      >
+    <div className="App" style={{ justifyContent: 'center' }}>
+      <Box>
         <Typography
           variant="h1"
           gutterBottom
