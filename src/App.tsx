@@ -6,10 +6,8 @@ import mockData from './components/MockData';
 import Task from './types/Task';
 
 const App: React.FC = () => {
+  // Global state for phases
   const [state, setState] = useState(mockData);
-  const [isPhaseDone, setIsPhaseDone] = useState(
-    Array(mockData.phases.length).fill(false)
-  );
 
   return (
     <div
@@ -29,6 +27,7 @@ const App: React.FC = () => {
         >
           Taskify
         </Typography>
+
         <PhaseList phases={state.phases} />
       </Box>
     </div>
