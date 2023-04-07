@@ -21,14 +21,22 @@ interface PhaseStatus {
   completed: boolean;
 }
 
-const PhaseList = ({ phases }: PhaseListProps) => {
+const PhaseList = (
+  { phases }: PhaseListProps,
+  { id, completed }: PhaseStatus
+) => {
   const [phaseStatuses, setPhaseStatuses] = useState<PhaseStatus[]>(
     // At the beginning, all the phases are uncompleted
     phases.map((phase) => ({ id: phase.id, completed: false }))
   );
 
-  const phaseWithIdOne = phases.filter((phase) => phase.id === 1);
+  const handleTaskListCompleted = (phaseId: number, completed: boolean) => {
+    const updatedPhaseStatuses = [...phaseStatuses];
+    updatedPhaseStatuses[phaseId - 1].completed = completed;
+    setPhaseStatuses(updatedPhaseStatuses);
+  };
 
+  const phaseWithIdOne = phases.filter((phase) => phase.id === 1);
   return (
     <>
       {phaseWithIdOne !== undefined && (
@@ -94,7 +102,10 @@ const PhaseList = ({ phases }: PhaseListProps) => {
                     overflow: 'hidden',
                   }}
                 >
-                  <TaskList tasks={phase.tasks} />
+                  <TaskList
+                    tasks={phase.tasks}
+                    taskListDone={phaseWithIdOne.completed}
+                  />
                 </Box>
               </Paper>
             </Grid>

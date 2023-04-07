@@ -5,32 +5,39 @@ import { CheckBox } from '@mui/icons-material';
 
 interface SingleTaskProps {
   task: Task;
+  completed: boolean;
+  onChange: (completed: boolean) => void;
 }
 
-const SingleTask: React.FC<SingleTaskProps> = ({ task }: SingleTaskProps) => {
-  const [checked, setChecked] = useState<boolean>(task.completed);
+const SingleTask: React.FC<SingleTaskProps> = ({
+  task,
+  completed,
+  onChange,
+}: SingleTaskProps) => {
+  const [taskCompleted, setTaskCompleted] = useState<boolean>(completed);
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const completed = event.target.checked;
-    setChecked(completed);
-    task.completed = completed;
+    setTaskCompleted(completed);
+    onChange(completed);
   };
-  console.log(task.completed);
+  useEffect(() => {
+    setTaskCompleted(completed);
+  }, [completed]);
 
-  useEffect(() => {}, [checked]);
   return (
     <Box
       sx={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        textDecoration: checked ? 'line-through' : 'transparent',
+        textDecoration: taskCompleted ? 'line-through' : 'transparent',
       }}
     >
       <Box sx={{ mr: 1 }}>
         <Typography variant="body1">{task.task}</Typography>
       </Box>
       <Checkbox
-        checked={checked}
+        checked={taskCompleted}
         onChange={handleChange}
         sx={{ marginLeft: '125px' }}
       />
