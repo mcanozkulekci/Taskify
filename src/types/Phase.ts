@@ -2,7 +2,7 @@ import Task from './Task';
 
 interface Phase {
   id: number;
-  phase: string;
+  name: string;
   tasks: Task[];
   done: boolean;
 }

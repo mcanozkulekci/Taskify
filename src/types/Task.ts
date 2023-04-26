@@ -1,6 +1,6 @@
 interface Task {
   id: number;
-  task: string;
+  name: string;
   completed: boolean;
 }
 export default Task;

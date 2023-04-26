@@ -4,21 +4,21 @@ const mockData: State = {
   phases: [
     {
       id: 1,
-      phase: 'Phase 1',
+      name: 'Phase 1',
       tasks: [
         {
           id: 1,
-          task: 'Task 1.1',
+          name: 'Task 1.1',
           completed: true,
         },
         {
           id: 2,
-          task: 'Task 1.2',
+          name: 'Task 1.2',
           completed: false,
         },
         {
           id: 3,
-          task: 'Task 1.3',
+          name: 'Task 1.3',
           completed: false,
         },
       ],
@@ -26,16 +26,16 @@ const mockData: State = {
     },
     {
       id: 2,
-      phase: 'Phase 2',
+      name: 'Phase 2',
       tasks: [
         {
           id: 4,
-          task: 'Task 2.1',
+          name: 'Task 2.1',
           completed: false,
         },
         {
           id: 5,
-          task: 'Task 2.2',
+          name: 'Task 2.2',
           completed: true,
         },
       ],
@@ -43,11 +43,16 @@ const mockData: State = {
     },
     {
       id: 3,
-      phase: 'Phase 3',
+      name: 'Phase 3',
       tasks: [
         {
           id: 6,
-          task: 'Task 3.1',
+          name: 'Task 3.1',
+          completed: true,
+        },
+        {
+          id: 7,
+          name: 'Task 3.',
           completed: true,
         },
       ],
