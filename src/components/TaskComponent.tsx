@@ -3,12 +3,14 @@ import React, { useState } from 'react';
 import Task from '../types/Task';
 import { Checkbox } from '@mui/material';
 import Phase from '../types/Phase';
+import State from '../types/State';
 interface TaskProps {
   tasks: Task[];
   phase: Phase;
+  mockData: State;
 }
 
-const TaskComponent = ({ tasks, phase }: TaskProps) => {
+const TaskComponent = ({ tasks, phase, mockData }: TaskProps) => {
   const [isCompleted, setIsCompleted] = useState<boolean[]>(
     tasks.map((task) => task.completed)
   );
@@ -31,6 +33,15 @@ const TaskComponent = ({ tasks, phase }: TaskProps) => {
     } else {
       phase.done = false;
     }
+    // const newTasks = [...tasks];
+    // newTasks[index].completed = !newTasks[index].completed;
+    // mockData.phases.forEach((phase) => {
+    //   phase.tasks.forEach((t) => {
+    //     if (t.id === newTasks[index].id) {
+    //       t.completed = newTasks[index].completed;
+    //     }
+    //   });
+    // });
   };
 
   return (
