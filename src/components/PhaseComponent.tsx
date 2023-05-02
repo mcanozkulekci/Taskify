@@ -7,7 +7,6 @@ import Task from '../types/Task';
 interface PhaseProps {
   phase: Phase;
   tasks: Task[];
-  done: boolean;
 }
 
 const PhaseComponent = ({ phase, tasks }: PhaseProps) => {
@@ -16,7 +15,7 @@ const PhaseComponent = ({ phase, tasks }: PhaseProps) => {
       <Typography variant="h5">
         <div>{phase.name}</div>
       </Typography>
-      <TaskComponent tasks={tasks} />
+      <TaskComponent tasks={tasks} phase={phase} />
       {/* <TaskComponent tasks={phase.tasks} /> */}
     </div>
   );

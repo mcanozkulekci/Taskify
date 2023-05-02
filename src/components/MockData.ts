@@ -22,7 +22,7 @@ const mockData: State = {
           completed: false,
         },
       ],
-      done: false,
+      done: true,
     },
     {
       id: 2,
@@ -39,7 +39,7 @@ const mockData: State = {
           completed: true,
         },
       ],
-      done: false,
+      done: true,
     },
     {
       id: 3,
@@ -52,7 +52,75 @@ const mockData: State = {
         },
         {
           id: 7,
-          name: 'Task 3.',
+          name: 'Task 3.2',
+          completed: true,
+        },
+      ],
+      done: true,
+    },
+    {
+      id: 4,
+      name: 'Phase 4',
+      tasks: [
+        {
+          id: 8,
+          name: 'Task 4.1',
+          completed: true,
+        },
+        {
+          id: 9,
+          name: 'Task 4.2',
+          completed: true,
+        },
+      ],
+      done: true,
+    },
+    {
+      id: 5,
+      name: 'Phase 5',
+      tasks: [
+        {
+          id: 10,
+          name: 'Task 5.1',
+          completed: true,
+        },
+        {
+          id: 11,
+          name: 'Task 5.2',
+          completed: true,
+        },
+      ],
+      done: false,
+    },
+    {
+      id: 6,
+      name: 'Phase 6',
+      tasks: [
+        {
+          id: 12,
+          name: 'Task 6.1',
+          completed: true,
+        },
+        {
+          id: 13,
+          name: 'Task 6.2',
+          completed: true,
+        },
+      ],
+      done: false,
+    },
+    {
+      id: 7,
+      name: 'Phase 7',
+      tasks: [
+        {
+          id: 14,
+          name: 'Task 7.1',
+          completed: true,
+        },
+        {
+          id: 15,
+          name: 'Task 7.2',
           completed: true,
         },
       ],
