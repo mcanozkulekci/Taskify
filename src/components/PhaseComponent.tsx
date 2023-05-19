@@ -3,7 +3,6 @@ import Phase from '../types/Phase';
 import TaskComponent from './TaskComponent';
 import { Typography } from '@mui/material';
 import Task from '../types/Task';
-import mockData from './MockData';
 
 interface PhaseProps {
   phase: Phase;
@@ -16,7 +15,7 @@ const PhaseComponent = ({ phase, tasks }: PhaseProps) => {
       <Typography variant="h5">
         <div>{phase.name}</div>
       </Typography>
-      <TaskComponent tasks={tasks} phase={phase} mockData={mockData} />
+      <TaskComponent tasks={tasks} phase={phase} key={phase.id} />
       {/* <TaskComponent tasks={phase.tasks} /> */}
     </div>
   );

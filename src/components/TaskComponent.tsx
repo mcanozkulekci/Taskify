@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Task from '../types/Task';
 import { Checkbox } from '@mui/material';
@@ -7,13 +7,20 @@ import State from '../types/State';
 interface TaskProps {
   tasks: Task[];
   phase: Phase;
-  mockData: State;
 }
 
-const TaskComponent = ({ tasks, phase, mockData }: TaskProps) => {
+const TaskComponent = ({ tasks, phase }: TaskProps) => {
   const [isCompleted, setIsCompleted] = useState<boolean[]>(
     tasks.map((task) => task.completed)
   );
+
+  const [isDone, setIsDone] = useState(false);
+
+  useEffect(() => {
+    if (isDone) {
+      console.log('done', phase.id, phase.name);
+    }
+  }, [isDone]);
 
   const handleChange = (index: number) => {
     // Once hepsini oldugu gibi alir
@@ -28,20 +35,11 @@ const TaskComponent = ({ tasks, phase, mockData }: TaskProps) => {
     console.log(tasks[index].completed);
 
     const completedAll = tasks.every((task) => task.completed);
+
     if (completedAll) {
       phase.done = true;
-    } else {
-      phase.done = false;
+      setIsDone(phase.done);
     }
-    // const newTasks = [...tasks];
-    // newTasks[index].completed = !newTasks[index].completed;
-    // mockData.phases.forEach((phase) => {
-    //   phase.tasks.forEach((t) => {
-    //     if (t.id === newTasks[index].id) {
-    //       t.completed = newTasks[index].completed;
-    //     }
-    //   });
-    // });
   };
 
   return (
