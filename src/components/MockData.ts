@@ -23,6 +23,7 @@ const mockData: State = {
         },
       ],
       done: false,
+      locked: false,
     },
     {
       id: 2,
@@ -40,6 +41,7 @@ const mockData: State = {
         },
       ],
       done: false,
+      locked: true,
     },
     {
       id: 3,
@@ -57,6 +59,7 @@ const mockData: State = {
         },
       ],
       done: false,
+      locked: true,
     },
     {
       id: 4,
@@ -74,6 +77,7 @@ const mockData: State = {
         },
       ],
       done: false,
+      locked: true,
     },
     {
       id: 5,
@@ -91,6 +95,7 @@ const mockData: State = {
         },
       ],
       done: false,
+      locked: true,
     },
     {
       id: 6,
@@ -108,6 +113,7 @@ const mockData: State = {
         },
       ],
       done: false,
+      locked: true,
     },
     {
       id: 7,
@@ -125,6 +131,7 @@ const mockData: State = {
         },
       ],
       done: false,
+      locked: true,
     },
   ],
 };

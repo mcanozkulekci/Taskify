@@ -7,20 +7,19 @@ import State from '../types/State';
 interface TaskProps {
   tasks: Task[];
   phase: Phase;
+  handlePhaseComplete: () => void;
+  handlePhaseNotComplete: () => void;
 }
 
-const TaskComponent = ({ tasks, phase }: TaskProps) => {
+const TaskComponent = ({
+  tasks,
+  phase,
+  handlePhaseComplete,
+  handlePhaseNotComplete,
+}: TaskProps) => {
   const [isCompleted, setIsCompleted] = useState<boolean[]>(
     tasks.map((task) => task.completed)
   );
-
-  const [isDone, setIsDone] = useState(false);
-
-  useEffect(() => {
-    if (isDone) {
-      console.log('done', phase.id, phase.name);
-    }
-  }, [isDone]);
 
   const handleChange = (index: number) => {
     // Once hepsini oldugu gibi alir
@@ -37,8 +36,9 @@ const TaskComponent = ({ tasks, phase }: TaskProps) => {
     const completedAll = tasks.every((task) => task.completed);
 
     if (completedAll) {
-      phase.done = true;
-      setIsDone(phase.done);
+      handlePhaseComplete();
+    } else {
+      handlePhaseNotComplete();
     }
   };
 

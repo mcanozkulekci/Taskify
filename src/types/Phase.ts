@@ -5,6 +5,7 @@ interface Phase {
   name: string;
   tasks: Task[];
   done: boolean;
+  locked: boolean;
 }
 
 export default Phase;

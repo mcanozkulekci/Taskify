@@ -8,17 +8,37 @@ interface PageProps {
 }
 
 const PageComponent = ({ phases }: PageProps) => {
-  //    if (phase.id === index + 1 && index > 0 && phases[index - 1].done)
-  const [currentPhaseIndex, setCurrentPhaseIndex] = useState(0);
-  useEffect(() => {
-    const currentPhase = phases[currentPhaseIndex];
-    const completedAllTasks = currentPhase.done;
+  const [currentPhases, setCurrentPhases] = useState(phases);
 
-    if (completedAllTasks && currentPhaseIndex < phases.length - 1) {
-      console.log('hello');
-      setCurrentPhaseIndex(currentPhaseIndex + 1);
-    }
-  }, [currentPhaseIndex, phases]);
+  const unlockNextPhase = (id: number) => {
+    const newPhases = [...currentPhases];
+    const index = newPhases.findIndex((phase) => phase.id === id);
+    newPhases[index].locked = false;
+    setCurrentPhases(newPhases);
+  };
+
+  const onPhaseComplete = (id: number) => {
+    const newPhases = [...currentPhases];
+    const index = newPhases.findIndex((phase) => phase.id === id);
+    newPhases[index].done = true;
+    setCurrentPhases(newPhases);
+    unlockNextPhase(id + 1);
+  };
+
+  const lockNextPhase = (id: number) => {
+    const newPhases = [...currentPhases];
+    const index = newPhases.findIndex((phase) => phase.id === id);
+    newPhases[index].locked = true;
+    setCurrentPhases(newPhases);
+  };
+
+  const onPhaseNotComplete = (id: number) => {
+    const newPhases = [...currentPhases];
+    const index = newPhases.findIndex((phase) => phase.id === id);
+    newPhases[index].done = false;
+    setCurrentPhases(newPhases);
+    lockNextPhase(id + 1);
+  };
 
   return (
     <div>
@@ -28,10 +48,18 @@ const PageComponent = ({ phases }: PageProps) => {
         justifyContent="space-between"
         alignItems="center"
       >
-        {phases.map((phase, index) => {
-          if (index <= currentPhaseIndex) {
-            return <PhaseComponent phase={phase} tasks={phase.tasks} />;
+        {phases.map((phase) => {
+          if (phase.locked) {
+            return <></>;
           }
+          return (
+            <PhaseComponent
+              phase={phase}
+              tasks={phase.tasks}
+              onPhaseComplete={onPhaseComplete}
+              onPhaseNotComplete={onPhaseNotComplete}
+            />
+          );
         })}
       </Grid>
     </div>
